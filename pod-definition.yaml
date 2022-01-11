@@ -5,6 +5,7 @@ metadata:
   labels:
     app: myapp
     type: backend
+    year: "2022"
 spec:
   containers: 
     - name: nginx-app
