@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: serkinti-ui
+spec:
+  selector:
+    matchLabels:
+      app: serkinti-ui
+  template:
+    metadata:
+      labels:
+        app: serkinti-ui
+    spec:
+      containers:
+      - name: serkinti-ui
+        image: 030923948224.dkr.ecr.us-east-1.amazonaws.com/serkinti-ui
+        # resources:
+        #   limits:
+        #     memory: "128Mi"
+        #     cpu: "500m"
+        ports:
+        - containerPort: 3023
+        imagePullPolicy: Always
+        env:
+          - name: API_URL
+            value: http://serkinti-api:4010
